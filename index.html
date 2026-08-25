@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《武林外传》官方网站 - 祈雪工作室 QIXUE STUDIO</title>
+    <!-- 引入 Font Awesome 国风/通用矢量图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入思源宋体/楷体风格字体增强国风感 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #d5a253;
+            --gold-light: #fbe3a9;
+            --gold-dark: #8c6426;
+            --crimson: #a92a2a;
+            --crimson-light: #d63d3d;
+            --ink-black: #0c0d10;
+            --ink-dark: #14171d;
+            --card-bg: rgba(20, 23, 30, 0.92);
+            --border-gold: rgba(213, 162, 83, 0.35);
+            --border-gold-glow: rgba(213, 162, 83, 0.6);
+            --text-main: #f0ede6;
+            --text-sub: #a4a095;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--ink-black);
+            color: var(--text-main);
+            font-family: "Noto Serif SC", "Source Han Serif SC", "STKaiti", "KaiTi", serif;
+            background-image: 
+                radial-gradient(circle at 50% 10%, rgba(169, 42, 42, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 40%, rgba(213, 162, 83, 0.08) 0%, transparent 40%),
+                linear-gradient(180deg, #08090b 0%, #12151b 50%, #0c0d10 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        /* 国风边框装饰效果 */
+        .guofeng-border {
+            position: relative;
+            border: 1px solid var(--border-gold);
+        }
+        .guofeng-border::before, .guofeng-border::after {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border: 1px solid var(--gold-light);
+            pointer-events: none;
+        }
+        .guofeng-border::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+        .guofeng-border::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+        /* 顶部导航 */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(12, 13, 16, 0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 0.8rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 导航栏 LOGO 展示区 */
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+        }
+
+        .header-logo-img {
+            height: 46px;
+            width: auto;
+            max-width: 140px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-size: 1.35rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: var(--gold-light);
+            text-shadow: 0 0 10px rgba(213, 162, 83, 0.3);
+        }
+
+        .brand-sub {
+            font-size: 0.72rem;
+            color: var(--text-sub);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 1.8rem;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            position: relative;
+            padding-bottom: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        nav a:hover {
+            color: var(--gold-light);
+        }
+        nav a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+        }
+
+        /* 首页 Hero 大幅视觉区 */
+        .hero {
+            position: relative;
+            padding: 4rem 1.5rem 3rem;
+            text-align: center;
+            background: radial-gradient(circle at 50% 30%, rgba(213, 162, 83, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-logo-wrapper {
+            margin: 0 auto 1.5rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .main-logo-display {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            padding: 6px;
+            background: radial-gradient(circle, #221815 0%, #0d0e12 100%);
+            box-shadow: 0 0 30px rgba(213, 162, 83, 0.3), inset 0 0 15px rgba(213, 162, 83, 0.2);
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, rgba(169,42,42,0.8), rgba(140,100,38,0.8));
+            border: 1px solid var(--gold-primary);
+            color: #fff;
+            font-size: 0.85rem;
+            padding: 4px 18px;
+            border-radius: 20px;
+            letter-spacing: 2px;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            font-weight: 900;
+            letter-spacing: 6px;
+            color: #fff;
+            margin-bottom: 0.8rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.9), 0 0 15px rgba(213, 162, 83, 0.4);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(180deg, #fff3d1 0%, #d5a253 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-sub);
+            font-size: 1.15rem;
+            letter-spacing: 2px;
+            max-width: 700px;
+            margin: 0 auto 2.8rem;
+        }
+
+        /* 核心下载专区 (三按键) */
+        .download-container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 4px;
+            padding: 2.2rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .btn-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 1.1rem 1.4rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 主下载按键 - 鎏金风格 */
+        .btn-gold {
+            background: linear-gradient(135deg, #e5b364 0%, #9e712a 100%);
+            color: #1a1003;
+            border: 1px solid var(--gold-light);
+            box-shadow: 0 6px 20px rgba(213, 162, 83, 0.35);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #fae29f 0%, #b88636 100%);
+            box-shadow: 0 10px 28px rgba(213, 162, 83, 0.55);
+        }
+
+        /* 备用下载按键 - 玄铁墨韵风格 */
+        .btn-ink {
+            background: rgba(30, 35, 46, 0.9);
+            color: var(--gold-light);
+            border: 1px solid var(--border-gold);
+        }
+
+        .btn-ink:hover {
+            background: rgba(45, 52, 68, 0.95);
+            transform: translateY(-3px);
+            border-color: var(--gold-light);
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 登录器按键 - 朱红战旗风格 */
+        .btn-crimson {
+            background: linear-gradient(135deg, #ba3232 0%, #701616 100%);
+            color: #fff;
+            border: 1px solid rgba(255, 150, 150, 0.4);
+            box-shadow: 0 6px 20px rgba(186, 50, 50, 0.35);
+        }
+
+        .btn-crimson:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #d93d3d 0%, #8c1c1c 100%);
+            box-shadow: 0 10px 28px rgba(217, 61, 61, 0.55);
+        }
+
+        .btn-icon {
+            font-size: 1.8rem;
+        }
+
+        .btn-text-main {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .btn-text-sub {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            letter-spacing: 1px;
+        }
+
+        /* 主体布局 */
+        .container {
+            max-width: 1200px;
+            margin: 3.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .panel {
+            background: var(--card-bg);
+            border-radius: 4px;
+            padding: 2rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 0.9rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .panel-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .panel-title i {
+            color: var(--crimson-light);
+        }
+
+        /* 列表展示区 */
+        .info-list {
+            list-style: none;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.85rem 0;
+            border-bottom: 1px dashed rgba(213, 162, 83, 0.15);
+            font-size: 0.98rem;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-link {
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 78%;
+        }
+
+        .info-link:hover {
+            color: var(--gold-light);
+        }
+
+        .info-tag {
+            font-size: 0.75rem;
+            padding: 2px 7px;
+            border-radius: 2px;
+            letter-spacing: 1px;
+            flex-shrink: 0;
+        }
+
+        .tag-hot { 
+            background: rgba(169, 42, 42, 0.25); 
+            color: #ff8585; 
+            border: 1px solid var(--crimson); 
+        }
+        .tag-gold { 
+            background: rgba(213, 162, 83, 0.15); 
+            color: var(--gold-light); 
+            border: 1px solid var(--gold-primary); 
+        }
+
+        .info-date {
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        /* 游戏特色专区样式 */
+        .features-section {
+            margin-bottom: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold-light);
+        }
+
+        .feature-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon {
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            background: rgba(213, 162, 83, 0.12);
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            border: 1px solid var(--border-gold);
+            flex-shrink: 0;
+        }
+
+        .feature-title {
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .feature-list li {
+            font-size: 0.93rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.55;
+        }
+
+        .feature-list li i {
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        .highlight-text {
+            color: var(--gold-light);
+            font-weight: 700;
+        }
+
+        .badge-pill {
+            display: inline-block;
+            background: rgba(169, 42, 42, 0.3);
+            border: 1px solid rgba(214, 61, 61, 0.5);
+            color: #ff9e9e;
+            font-size: 0.75rem;
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+
+        /* 帮助中心样式 */
+        .help-section {
+            margin-bottom: 4rem;
+        }
+
+        .help-card {
+            background: rgba(18, 20, 26, 0.95);
+            border: 2px solid rgba(213, 162, 83, 0.45);
+            border-radius: 12px;
+            padding: 2.2rem 2.4rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .help-inner-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #ffd04b;
+            letter-spacing: 1px;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(255, 208, 75, 0.3);
+            margin-bottom: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .help-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #e2dfd7;
+        }
+
+        .help-list > li {
+            position: relative;
+            padding-left: 1.4rem;
+        }
+
+        .help-list > li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: -1px;
+            color: #ffd04b;
+            font-size: 1.3rem;
+        }
+
+        .help-link-gold {
+            color: #ffd04b;
+            text-decoration: underline;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        .help-link-gold:hover {
+            opacity: 0.85;
+        }
+
+        .help-steps-list {
+            list-style: none;
+            margin: 0.5rem 0 0.8rem 0.5rem;
+            padding: 0.8rem 1.1rem;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 6px;
+            border-left: 3px solid #ffd04b;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            font-size: 0.9rem;
+            color: #c9c5ba;
+        }
+
+        /* 教程视频跳转专属按钮 */
+        .tutorial-video-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #1877f2 0%, #0d5bb5 100%);
+            color: #ffffff !important;
+            padding: 7px 16px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: bold;
+            text-decoration: none !important;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.35);
+            transition: all 0.3s ease;
+            margin-top: 4px;
+        }
+
+        .tutorial-video-btn:hover {
+            background: linear-gradient(135deg, #2d88ff 0%, #156ed4 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(24, 119, 242, 0.55);
+            color: #ffffff;
+        }
+
+        .help-notice {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(213, 162, 83, 0.25);
+            font-size: 0.9rem;
+            color: #a4a095;
+        }
+
+        /* 视觉图赏专区 */
+        .gallery-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.1rem;
+            color: #ffd04b;
+            margin-bottom: 2rem;
+            letter-spacing: 4px;
+            font-weight: 900;
+            text-shadow: 0 0 15px rgba(213, 162, 83, 0.3);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            background: #11141c;
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-light);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px 14px;
+            background: linear-gradient(0deg, rgba(8, 9, 11, 0.95) 0%, transparent 100%);
+            color: var(--gold-light);
+            font-size: 0.92rem;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* 社区与客服专区 */
+        .social-support-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .social-card, .support-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .fb-btn {
+            background: #1877f2;
+            color: #fff;
+            padding: 0.95rem 1.4rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .fb-btn:hover {
+            background: #1464cc;
+            transform: translateY(-2px);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-gold);
+            padding: 1.1rem 0.8rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+
+        .contact-item:hover {
+            background: rgba(213, 162, 83, 0.08);
+            border-color: var(--gold-light);
+            transform: translateY(-3px);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .icon-messenger { color: #0084ff; }
+        .icon-wechat { color: #07c160; }
+
+        /* 页脚 */
+        footer {
+            border-top: 1px solid var(--border-gold);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            background: #060709;
+            letter-spacing: 1px;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 移动端响应式适配 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .content-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .help-card { padding: 1.5rem 1.2rem; }
+            header { flex-direction: column; gap: 12px; padding: 1rem; }
+            nav a { margin: 0 0.6rem; font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <header>
+        <a href="#" class="brand-box">
+            <!-- 【导航栏 LOGO】 -->
+            <img src="logo.png" alt="祈雪工作室 LOGO" class="header-logo-img" style="border-radius: 50%;">
+            <div class="brand-text">
+                <div class="brand-title">祈雪工作室</div>
+                <div class="brand-sub">QIXUE STUDIO</div>
+            </div>
+        </a>
+        <nav>
+            <a href="#downloads"><i class="fa-solid fa-cloud-arrow-down"></i> 游戏下载</a>
+            <a href="#features"><i class="fa-solid fa-dragon"></i> 游戏特色</a>
+            <a href="#help"><i class="fa-solid fa-circle-question"></i> 帮助中心</a>
+            <a href="#news"><i class="fa-solid fa-scroll"></i> 江湖告示</a>
+            <a href="#gallery"><i class="fa-solid fa-panorama"></i> 视觉鉴赏</a>
+            <a href="#support"><i class="fa-solid fa-headset"></i> 客服支持</a>
+        </nav>
+    </header>
+
+    <!-- 头部视觉与核心下载专区 -->
+    <section class="hero" id="downloads">
+        
+        <!-- 【页面居中大 LOGO 展示位】 -->
+        <div class="hero-logo-wrapper">
+            <img src="logo.png" alt="祈雪工作室徽标" class="main-logo-display" style="border-radius: 50%;">
+        </div>
+
+        <div>
+            <span class="hero-badge"><i class="fa-solid fa-snowflake"></i> 祈雪工作室 · 倾力呈现</span>
+        </div>
+        
+        <h1>《祈雪·武林外传》 <span>官方网站</span></h1>
+        <p>同福相聚，重谱侠骨柔情。畅享极致稳定的武侠经典世界！</p>
+
+        <!-- 游戏下载按钮区 -->
+        <div class="download-container guofeng-border">
+            <div class="btn-group">
+                <!-- 1. 官方高速下载 -->
+                <a href="https://example.com/download-main" class="btn btn-gold guofeng-border" target="_blank">
+                    <i class="fa-solid fa-download btn-icon"></i>
+                    <div style="text-align: left;">
+                        <div class="btn-text-sub">官方高速线路</div>
+                        <div class="btn-text-main">完整客户端下载</div>
+                    </div>
+                </a>
+
+                <!-- 2. 备用通道 -->
+                <a href="https://example.com/download-backup" class="btn btn-ink guofeng-border" target="_blank">
+                    <i class="fa-solid fa-server btn-icon"></i>
+                    <div style="text-align: left;">
+                        <div class="btn-text-sub">云端备用通道</div>
+                        <div class="btn-text-main">备用下载网盘</div>
+                    </div>
+                </a>
+
+                <!-- 3. 极速登录器 -->
+                <a href="https://example.com/launcher" class="btn btn-crimson guofeng-border" target="_blank">
+                    <i class="fa-solid fa-bolt-lightning btn-icon"></i>
+                    <div style="text-align: left;">
+                        <div class="btn-text-sub">微端极速启动</div>
+                        <div class="btn-text-main">官方登录器下载</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主体区域 -->
+    <main class="container">
+
+        <!-- 游戏特色玩法专区 -->
+        <section class="features-section" id="features">
+            <h2 class="section-title">❖ 游戏特色 · 经典再现 ❖</h2>
+            <div class="features-grid">
+                
+                <!-- 卡片 1: 开局福利与升级 -->
+                <div class="feature-card guofeng-border">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fa-solid fa-gift"></i></div>
+                        <div class="feature-title">开局起飞 · 丰厚豪礼</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-angles-right"></i><span>上线即领 <span class="highlight-text">强天100等级</span>，满境界、满修炼、满灵脉开局！</span></li>
+                        <li><i class="fa-solid fa-angles-right"></i><span>全面降低升级难度，告别枯燥刷级，畅快体验江湖！</span></li>
+                        <li><i class="fa-solid fa-angles-right"></i><span>达到指定等级赠送 <span class="highlight-text">专属称号、极品法宝及海量元宝</span>！</span></li>
+                        <li><i class="fa-solid fa-angles-right"></i><span>每日轻松完成日常任务，即可免费获赠丰厚元宝！</span></li>
+                        <li><i class="fa-solid fa-angles-right"></i><span>全场时装外观 <span class="highlight-text">全部免费开放</span>，随心百变江湖穿搭！</span></li>
+                    </ul>
+                </div>
+
+                <!-- 卡片 2: 经济生态与商城 -->
+                <div class="feature-card guofeng-border">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fa-solid fa-coins"></i></div>
+                        <div class="feature-title">自由生态 · 超值比例</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-angles-right"></i><span>元宝充值超高比例：<span class="highlight-text">RM 1 : 10 元宝</span>，亲民实惠！</span></li>
+                        <li><i class="fa-solid fa-angles-right"></i><span>绝大部分强化进阶材料均可通过 <span class="highlight-text">野外Boss</span> 掉落获取！</span></li>
+                        <li><i class="fa-solid fa-angles-right"></i><span>大幅提升野外小怪金币掉落，挂机打怪收益翻倍！</span></li>
+                        <li><i class="fa-solid fa-angles-right"></i><span>推出超值月卡与成长基金礼包，战力飞升快人一步！</span></li>
+                    </ul>
+                </div>
+
+                <!-- 卡片 3: 新职业与核心玩法 -->
+                <div class="feature-card guofeng-border">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fa-solid fa-khanda"></i></div>
+                        <div class="feature-title">全新职业 · 热血激情</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-angles-right"></i><span>全新职业重磅登场：<span class="highlight-text">书生、刺客</span> 震撼降临江湖！</span></li>
+                        <li><i class="fa-solid fa-angles-right"></i><span>新增玩法：每晚 <span class="highlight-text">9:45 PK场地世界Boss降临</span>，击杀狂爆极品材料与巨额元宝！<span class="badge-pill">每晚必打</span></span></li>
+                        <li><i class="fa-solid fa-angles-right"></i><span>开放所有副本玩法，包含 <span class="highlight-text">京城秘道、冰火幻境、女娲剧本</span> 等！</span></li>
+                        <li><i class="fa-solid fa-angles-right"></i><span>优化下调副本及部分任务、活动难度，组队通关更轻松！</span></li>
+                    </ul>
+                </div>
+
+                <!-- 卡片 4: 独家便捷功能与原汁原味 -->
+                <div class="feature-card guofeng-border">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <div class="feature-title">便捷体验 · 原汁原味</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-angles-right"></i><span>新增 <span class="highlight-text">Boss传送服务</span>：支持一键直达，实时查看Boss刷新倒计时！</span></li>
+                        <li><i class="fa-solid fa-angles-right"></i><span>独家 <span class="highlight-text">请神符</span> 功能：支持死亡自动复活、多点智能挂机！</span></li>
+                        <li><i class="fa-solid fa-angles-right"></i><span>全新宠物系统：支持一键扫荡剧本，省时省力极速减负！</span></li>
+                        <li><i class="fa-solid fa-angles-right"></i><span>仿官服设定，<span class="highlight-text">所有职业技能原汁原味、绝无魔改</span>！</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 帮助中心专区 (1:1 原版复刻实景图 + 白名单视频跳转按钮) -->
+        <section class="help-section" id="help">
+            <h2 class="section-title">帮助中心</h2>
+            <div class="help-card">
+                <div class="help-inner-title">
+                    <i class="fa-solid fa-desktop"></i>
+                    <span>安装与下载 (Windows)</span>
+                </div>
+                <ul class="help-list">
+                    <li>
+                        <strong>客户端下载：</strong>前往 <a href="#downloads" class="help-link-gold">官网页面</a>，选择【客户端下载】。
+                    </li>
+                    <li>
+                        <strong>WINRAR解压器下载：</strong><a href="https://www.win-rar.com/download.html" target="_blank" class="help-link-gold">立即下载</a>
+                    </li>
+                    <li>
+                        <strong>Windows 安装：</strong>使用WINRAR解压后；若被安全软件拦截，选择“仍要运行/信任此文件”。
+                    </li>
+                    <li>
+                        <strong>提醒事项：</strong>由于游戏采用专属启动器，部分安全软件或杀毒程序可能会误判为异常文件。为确保顺利运行，请在解压或安装前，将整个游戏文件夹加入到防毒软件的信任区 / 白名单中，以避免文件被拦截或误删，造成启动失败。
+                    </li>
+                    <li>
+                        <strong>版本更新：</strong>若 GM 发布服务器更新，请务必先关闭所有正在运行的游戏程序（如 elementclient.exe），再重新打开登录器以进行更新。若在更新过程中仍保持登录器或游戏程序开启，可能导致补丁更新中断或文件损坏。一旦出现此情况，建议重新解压整个游戏文件夹后再启动游戏。
+                    </li>
+                    <li>
+                        <strong>白名单设置（建议解压前完成）：</strong>为避免安装或运行时被安全软件误删，请在解压前将游戏文件夹加入 Windows Defender 的白名单。步骤：
+                        <div class="help-steps-list">
+                            <div>1. 在开始菜单搜索 <strong>Virus & threat protection</strong> 并打开。</div>
+                            <div>2. 进入 <strong>Manage settings</strong>（管理设置）。</div>
+                            <div>3. 下滑到 <strong>Exclusions</strong>（排除项），点击 <strong>Add or remove exclusions</strong>（添加或移除排除项）。</div>
+                            <div>4. 点击 <strong>Add an exclusion</strong>（添加排除项），选择 <strong>Folder</strong>（文件夹）。</div>
+                            <div>5. 添加 <strong>整个游戏文件夹</strong> 或所在磁盘（如 D:\）。</div>
+                        </div>
+                        <!-- Facebook 白名单视频教程跳转按钮 -->
+                        <div style="margin-top: 8px;">
+                            <a href="https://www.facebook.com/qixuegame/videos/" target="_blank" class="tutorial-video-btn">
+                                <i class="fa-brands fa-facebook"></i>
+                                <i class="fa-solid fa-play-circle"></i>
+                                <span>点击观看【白名单设置】Facebook 视频教程</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>账号与启动：</strong>在登陆器【Qixueonline】内注册账号后，点击“开始游戏”。如无法启动，请联系FACEBOOK在线客服。
+                    </li>
+                </ul>
+                <div class="help-notice">
+                    <i class="fa-solid fa-circle-info" style="color: #ffd04b; margin-right: 5px;"></i>
+                    <strong>提示：</strong>安装/解压前请保持磁盘剩余空间≥5GB，尽量放在非系统盘（如 D:/Games/）。
+                </div>
+            </div>
+        </section>
+
+        <!-- 公告与更新区 -->
+        <div class="content-grid" id="news">
+            
+            <!-- 游戏公告框 -->
+            <div class="panel guofeng-border">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i class="fa-solid fa-bullhorn"></i>
+                        <span>江湖最新公告</span>
+                    </div>
+                </div>
+                <ul class="info-list">
+                    <li class="info-item">
+                        <a href="#" class="info-link">
+                            <span class="info-tag tag-hot">热门</span>
+                            祈雪官方旗舰大区震撼公测，豪礼盛典全面开启
+                        </a>
+                        <span class="info-date">2026-08-25</span>
+                    </li>
+                    <li class="info-item">
+                        <a href="#" class="info-link">
+                            <span class="info-tag tag-gold">活动</span>
+                            七侠镇庆典：全服多倍经验与稀有掉落限时开启
+                        </a>
+                        <span class="info-date">2026-08-20</span>
+                    </li>
+                    <li class="info-item">
+                        <a href="#" class="info-link">
+                            <span class="info-tag">环境</span>
+                            关于维护绿色武侠环境、严打违规行为的联合声明
+                        </a>
+                        <span class="info-date">2026-08-15</span>
+                    </li>
+                    <li class="info-item">
+                        <a href="#" class="info-link">
+                            <span class="info-tag">通知</span>
+                            机房骨干网络带宽升级与服务器例行维护公告
+                        </a>
+                        <span class="info-date">2026-08-10</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 更新内容框 -->
+            <div class="panel guofeng-border">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i class="fa-solid fa-feather-pointed"></i>
+                        <span>版本更新日志</span>
+                    </div>
+                </div>
+                <ul class="info-list">
+                    <li class="info-item">
+                        <a href="#" class="info-link">
+                            <span class="info-tag tag-gold">V3.0.0</span>
+                            职业流派平衡性优化，提升战斗技能释放手感
+                        </a>
+                        <span class="info-date">2026-08-24</span>
+                    </li>
+                    <li class="info-item">
+                        <a href="#" class="info-link">
+                            <span class="info-tag">新增</span>
+                            开放高阶团队秘境挑战，新增专属神兵铸造体系
+                        </a>
+                        <span class="info-date">2026-08-18</span>
+                    </li>
+                    <li class="info-item">
+                        <a href="#" class="info-link">
+                            <span class="info-tag">优化</span>
+                            重构客户端画面渲染引擎，全面提升高分屏兼容性
+                        </a>
+                        <span class="info-date">2026-08-12</span>
+                    </li>
+                    <li class="info-item">
+                        <a href="#" class="info-link">
+                            <span class="info-tag">修复</span>
+                            修复帮派领地战结算机制及部分任务交互异常
+                        </a>
+                        <span class="info-date">2026-08-05</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- 游戏图片展示区 -->
+        <section class="gallery-section" id="gallery">
+            <h2 class="section-title">❖ 江湖风采 · 视觉盛宴 ❖</h2>
+            <div class="gallery-grid">
+                <!-- 图片 1 -->
+                <div class="gallery-card guofeng-border">
+                    <img src="P1.png" alt="七侠镇风光">
+                    <div class="gallery-caption">重铸经典 · 七侠镇繁华再现</div>
+                </div>
+                <!-- 图片 2 -->
+                <div class="gallery-card guofeng-border">
+                    <img src="P2.png" alt="帮派对战">
+                    <div class="gallery-caption">群雄争霸 · 问鼎武林之巅</div>
+                </div>
+                <!-- 图片 3 -->
+                <div class="gallery-card guofeng-border">
+                    <img src="P3.png" alt="秘境历练">
+                    <div class="gallery-caption">新功能 · 轻松传送挑战BOSS</div>
+                </div>
+                <!-- 图片 4 -->
+                <div class="gallery-card guofeng-border">
+                    <img src="P4.png" alt="华美霓裳">
+                    <div class="gallery-caption">新功能 · 战力排行榜</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 社交专区与客服支持 -->
+        <section class="social-support-section" id="support">
+            
+            <!-- Facebook 粉丝专页 -->
+            <div class="social-card guofeng-border">
+                <div class="panel-title">
+                    <i class="fa-brands fa-facebook" style="color: #1877f2;"></i>
+                    <span>官方 Facebook 专页</span>
+                </div>
+                <p style="color: var(--text-sub); font-size: 0.95rem;">
+                    关注【祈雪工作室 QIXUE STUDIO】官方粉丝专页，获取玩家互动资讯、活动更新预告！
+                </p>
+                <a href="https://www.facebook.com/qixuegame/" class="fb-btn" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i> 前往 Facebook 粉丝专页
+                </a>
+            </div>
+
+            <!-- 客服联系专区 -->
+            <div class="support-card guofeng-border">
+                <div class="panel-title">
+                    <i class="fa-solid fa-headset"></i>
+                    <span>专属客服中心</span>
+                </div>
+                <p style="color: var(--text-sub); font-size: 0.95rem;">
+                    游戏安装、运行疑问或账号咨询？随时联系祈雪专属客服：
+                </p>
+                <div class="contact-grid">
+                    <!-- FB Messenger 客服 -->
+                    <a href="https://m.me/106760998293335/" class="contact-item" target="_blank">
+                        <i class="fa-brands fa-facebook-messenger icon-messenger"></i>
+                        <strong style="color: #fff;">Messenger</strong>
+                        <div style="font-size: 0.8rem; color: var(--text-sub); margin-top: 3px;">在线即时咨询</div>
+                    </a>
+
+                    <!-- 微信客服 -->
+                    <a href="javascript:void(0);" onclick="alert('祈雪工作室官方微信客服：\nShinqx2022\n（请在微信内搜索添加）')" class="contact-item">
+                        <i class="fa-brands fa-weixin icon-wechat"></i>
+                        <strong style="color: #fff;">微信客服</strong>
+                        <div style="font-size: 0.8rem; color: var(--text-sub); margin-top: 3px;">点击查看微信号</div>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- 底部版权 -->
+    <footer>
+        <p>本游戏官方运营与技术支持由 <strong>祈雪工作室 QIXUE STUDIO</strong> 提供</p>
+        <p>© 2026 祈雪工作室 QIXUE STUDIO · 《武林外传》 版权所有</p>
+    </footer>
+
+</body>
+</html>
