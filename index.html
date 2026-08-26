@@ -120,8 +120,8 @@
         nav a {
             color: var(--text-main);
             text-decoration: none;
-            margin-left: 1.8rem;
-            font-size: 1.05rem;
+            margin-left: 1.5rem;
+            font-size: 1.02rem;
             letter-spacing: 1px;
             transition: all 0.3s;
             position: relative;
@@ -660,6 +660,183 @@
             letter-spacing: 1px;
         }
 
+        /* 充值赞助专区样式 */
+        .recharge-section {
+            margin-bottom: 4rem;
+        }
+
+        .recharge-card {
+            background: var(--card-bg);
+            border-radius: 6px;
+            padding: 2.2rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .recharge-rate-box {
+            text-align: center;
+            background: radial-gradient(circle, rgba(213, 162, 83, 0.15) 0%, rgba(20, 23, 30, 0.8) 100%);
+            border: 1px solid var(--border-gold);
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+        }
+
+        .recharge-rate-text {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #ffd04b;
+            letter-spacing: 2px;
+        }
+
+        .recharge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .qr-box {
+            background: rgba(12, 14, 18, 0.85);
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .qr-box:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold-light);
+        }
+
+        .qr-title {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: var(--gold-light);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .qr-image-wrapper {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1.2rem;
+            background: #ffffff;
+            padding: 8px;
+            border-radius: 6px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .qr-desc {
+            font-size: 0.88rem;
+            color: var(--text-sub);
+        }
+
+        /* 充值须知与条款框 */
+        .recharge-terms-box {
+            background: rgba(169, 42, 42, 0.08);
+            border: 1px solid rgba(169, 42, 42, 0.35);
+            border-radius: 6px;
+            padding: 1.4rem 1.6rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .terms-title {
+            color: #ff9e9e;
+            font-weight: bold;
+            font-size: 1.05rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .terms-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.92rem;
+            color: #e5dada;
+        }
+
+        .terms-list li {
+            position: relative;
+            padding-left: 1.3rem;
+            line-height: 1.6;
+        }
+
+        .terms-list li::before {
+            content: "※";
+            position: absolute;
+            left: 0;
+            color: #ff8585;
+            font-size: 0.9rem;
+        }
+
+        .recharge-contact-prompt {
+            text-align: center;
+            background: rgba(213, 162, 83, 0.08);
+            border: 1px dashed var(--border-gold);
+            padding: 1.2rem;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .recharge-btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .recharge-contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-msg {
+            background: #0084ff;
+            color: #fff;
+        }
+        .btn-msg:hover {
+            background: #006bce;
+            transform: translateY(-2px);
+        }
+
+        .btn-wx {
+            background: #07c160;
+            color: #fff;
+        }
+        .btn-wx:hover {
+            background: #069c4e;
+            transform: translateY(-2px);
+        }
+
         /* 社区与客服专区 */
         .social-support-section {
             display: grid;
@@ -748,10 +925,11 @@
             .hero h1 { font-size: 2.3rem; }
             .content-grid { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: 1fr; }
+            .recharge-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             .help-card { padding: 1.5rem 1.2rem; }
             header { flex-direction: column; gap: 12px; padding: 1rem; }
-            nav a { margin: 0 0.6rem; font-size: 0.95rem; }
+            nav a { margin: 0 0.5rem; font-size: 0.92rem; }
         }
     </style>
 </head>
@@ -773,6 +951,7 @@
             <a href="#help"><i class="fa-solid fa-circle-question"></i> 帮助中心</a>
             <a href="#news"><i class="fa-solid fa-scroll"></i> 江湖告示</a>
             <a href="#gallery"><i class="fa-solid fa-panorama"></i> 视觉鉴赏</a>
+            <a href="#recharge"><i class="fa-solid fa-coins"></i> 充值赞助</a>
             <a href="#support"><i class="fa-solid fa-headset"></i> 客服支持</a>
         </nav>
     </header>
@@ -828,7 +1007,7 @@
     <!-- 主体区域 -->
     <main class="container">
 
-        <!-- 游戏特色玩法专区 -->
+        <!-- 1. 游戏特色玩法专区 -->
         <section class="features-section" id="features">
             <h2 class="section-title">❖ 游戏特色 · 经典再现 ❖</h2>
             <div class="features-grid">
@@ -893,7 +1072,7 @@
             </div>
         </section>
 
-        <!-- 帮助中心专区 (1:1 原版复刻实景图 + 白名单视频跳转按钮) -->
+        <!-- 2. 帮助中心专区 (安装指引 + 白名单设置视频) -->
         <section class="help-section" id="help">
             <h2 class="section-title">帮助中心</h2>
             <div class="help-card">
@@ -946,7 +1125,7 @@
             </div>
         </section>
 
-        <!-- 公告与更新区 -->
+        <!-- 3. 公告与更新区 -->
         <div class="content-grid" id="news">
             
             <!-- 游戏公告框 -->
@@ -1031,7 +1210,7 @@
 
         </div>
 
-        <!-- 游戏图片展示区 -->
+        <!-- 4. 游戏图片展示区 -->
         <section class="gallery-section" id="gallery">
             <h2 class="section-title">❖ 江湖风采 · 视觉盛宴 ❖</h2>
             <div class="gallery-grid">
@@ -1058,7 +1237,85 @@
             </div>
         </section>
 
-        <!-- 社交专区与客服支持 -->
+        <!-- 5. 充值赞助专区 (移至页面下方，视觉更自然体面) -->
+        <section class="recharge-section" id="recharge">
+            <h2 class="section-title">❖ 充值赞助 · 快捷通道 ❖</h2>
+            <div class="recharge-card guofeng-border">
+                
+                <!-- 比例横幅 -->
+                <div class="recharge-rate-box">
+                    <span class="recharge-rate-text"><i class="fa-solid fa-gem"></i> 官方赞助比例：RM 1.00 = 10 元宝</span>
+                    <div style="font-size: 0.88rem; color: var(--text-sub); margin-top: 4px;">扫码支付后请保留转账凭证并发送给在线客服进行充值核对与元宝发放</div>
+                </div>
+
+                <!-- 二维码展示区 -->
+                <div class="recharge-grid">
+                    <!-- DuitNow / 银行 QR -->
+                    <div class="qr-box">
+                        <div class="qr-title">
+                            <i class="fa-solid fa-qrcode" style="color: #ffd04b;"></i>
+                            <span>DuitNow / 银行扫码</span>
+                        </div>
+                        <div class="qr-image-wrapper">
+                            <!-- 请将图片命名为 QR.png 放在同级目录 -->
+                            <img src="DNW2.png" alt="DuitNow 收款二维码">
+                        </div>
+                        <div class="qr-desc">支持各大银行 App / 马来西亚 DuitNow 扫码</div>
+                    </div>
+
+                    <!-- TNG eWallet QR -->
+                    <div class="qr-box">
+                        <div class="qr-title">
+                            <i class="fa-solid fa-wallet" style="color: #0084ff;"></i>
+                            <span>Touch 'n Go eWallet</span>
+                        </div>
+                        <div class="qr-image-wrapper">
+                            <!-- 请将图片命名为 TNG.png 放在同级目录 -->
+                            <img src="TNG2.png" alt="TNG 收款二维码">
+                        </div>
+                        <div class="qr-desc">支持 Touch 'n Go 电子钱包极速扫码转账</div>
+                    </div>
+                </div>
+
+                <!-- 充值条款与注意事项 -->
+                <div class="recharge-terms-box">
+                    <div class="terms-title">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>赞助充值声明与条款（请在付款前仔细阅读）：</span>
+                    </div>
+                    <ul class="terms-list">
+                        <li><strong>自愿赞助声明：</strong>本游戏充值赞助纯属玩家自愿行为，所得资金将全部用于服务器带宽维护、版本研发与日常运营开销。</li>
+                        <li><strong>虚拟商品不退款：</strong>充值所获得的元宝及游戏内道具均为虚拟数字商品，<strong>一经充值成功或到账后，恕不提供任何形式的退款、退换或折现服务</strong>。</li>
+                        <li><strong>账号信息核对：</strong>付款时或付款后向客服提交凭证时，请务必准确提供您的<strong>游戏账号（登录账号）与角色名</strong>。如因玩家个人填写错误导致充错账号，后果需自行承担。</li>
+                        <li><strong>防诈骗提示：</strong>官方唯一充值渠道仅限本页面所展示的官方收款码及官方认证客服，请勿相信任何游戏内低价代充、私下交易等非官方信息，谨防受骗。</li>
+                    </ul>
+                </div>
+
+                <!-- 客服咨询提示与快速跳转 -->
+                <div class="recharge-contact-prompt">
+                    <div style="color: var(--gold-light); font-size: 1rem; font-weight: bold;">
+                        <i class="fa-solid fa-headset" style="margin-right: 6px;"></i>
+                        转账完成后，或对充值礼包、基金、到账状态有任何疑问？
+                    </div>
+                    <p style="color: var(--text-sub); font-size: 0.9rem; max-width: 700px;">
+                        请携带您的 <strong>【转账成功截图凭证】</strong> 及 <strong>【游戏账号 + 角色名】</strong> 随时联系我们的人工客服，我们将在第一时间为您处理入账！
+                    </p>
+                    <div class="recharge-btn-group">
+                        <a href="https://m.me/106760998293335/" target="_blank" class="recharge-contact-btn btn-msg">
+                            <i class="fa-brands fa-facebook-messenger"></i> 联系 Messenger 在线客服
+                        </a>
+                        <a href="javascript:void(0);" onclick="alert('祈雪工作室官方微信客服：
+Shinqx2022
+（请在微信内搜索添加）')" class="recharge-contact-btn btn-wx">
+                            <i class="fa-brands fa-weixin"></i> 联系微信客服 (Shinqx2022)
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. 社交专区与客服支持 -->
         <section class="social-support-section" id="support">
             
             <!-- Facebook 粉丝专页 -->
@@ -1068,7 +1325,7 @@
                     <span>官方 Facebook 专页</span>
                 </div>
                 <p style="color: var(--text-sub); font-size: 0.95rem;">
-                    关注【祈雪工作室 QIXUE STUDIO】官方粉丝专页，获取玩家互动资讯、活动更新预告！
+                    关注【祈雪工作室·马来西亚】官方粉丝专页，获取玩家互动资讯、活动更新预告！
                 </p>
                 <a href="https://www.facebook.com/qixuegame/" class="fb-btn" target="_blank">
                     <i class="fa-brands fa-facebook-f"></i> 前往 Facebook 粉丝专页
@@ -1093,7 +1350,9 @@
                     </a>
 
                     <!-- 微信客服 -->
-                    <a href="javascript:void(0);" onclick="alert('祈雪工作室官方微信客服：\nShinqx2022\n（请在微信内搜索添加）')" class="contact-item">
+                    <a href="javascript:void(0);" onclick="alert('祈雪工作室官方微信客服：
+Shinqx2022
+（请在微信内搜索添加）')" class="contact-item">
                         <i class="fa-brands fa-weixin icon-wechat"></i>
                         <strong style="color: #fff;">微信客服</strong>
                         <div style="font-size: 0.8rem; color: var(--text-sub); margin-top: 3px;">点击查看微信号</div>
