@@ -660,7 +660,7 @@
             letter-spacing: 1px;
         }
 
-        /* ====== 新增：特惠基金与月卡产品专区样式 ====== */
+        /* 特惠基金与月卡产品专区样式 */
         .packages-section {
             margin-bottom: 4rem;
         }
@@ -829,6 +829,154 @@
             background: linear-gradient(135deg, #fae29f 0%, #b88636 100%);
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(213, 162, 83, 0.4);
+        }
+
+        /* ====== 新增：至尊 VIP 奖励殿堂专区样式 ====== */
+        .vip-section {
+            margin-bottom: 4rem;
+        }
+
+        .vip-card-container {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2.2rem 2rem;
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75);
+        }
+
+        .vip-banner-box {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-gold);
+            margin-bottom: 2rem;
+            background: #000;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        }
+
+        .vip-banner-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .vip-sub-bar {
+            text-align: center;
+            background: linear-gradient(90deg, transparent, rgba(213, 162, 83, 0.18), transparent);
+            border-top: 1px solid var(--border-gold);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 0.7rem 1rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffd04b;
+            letter-spacing: 2px;
+            margin-bottom: 1.8rem;
+        }
+
+        .vip-table-scroll {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .vip-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        .vip-table tr {
+            background: rgba(12, 14, 18, 0.85);
+            transition: all 0.3s ease;
+        }
+
+        .vip-table tr:hover {
+            background: rgba(30, 36, 48, 0.95);
+            transform: translateX(4px);
+        }
+
+        .vip-table td {
+            padding: 1rem 1.2rem;
+            border-top: 1px solid rgba(213, 162, 83, 0.2);
+            border-bottom: 1px solid rgba(213, 162, 83, 0.2);
+            vertical-align: middle;
+        }
+
+        .vip-table td:first-child {
+            border-left: 1px solid rgba(213, 162, 83, 0.2);
+            border-radius: 4px 0 0 4px;
+            width: 130px;
+            text-align: center;
+        }
+
+        .vip-table td:last-child {
+            border-right: 1px solid rgba(213, 162, 83, 0.2);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .vip-badge-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #7c1a1a 0%, #3e1010 100%);
+            border: 1px solid #d5a253;
+            color: #ffd04b;
+            font-size: 1.1rem;
+            font-weight: 900;
+            padding: 6px 14px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .vip-rewards-wrap {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .vip-reward-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(213, 162, 83, 0.3);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: #f0ede6;
+        }
+
+        .vip-reward-item i {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+        }
+
+        .vip-title-desc {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .vip-title-head {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            color: #ffd04b;
+            font-size: 1.02rem;
+        }
+
+        .vip-title-attr {
+            font-size: 0.88rem;
+            color: #ff9e9e;
+            line-height: 1.5;
+        }
+
+        .vip-notice-bottom {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(213, 162, 83, 0.25);
         }
 
         /* 充值赞助专区样式 */
@@ -1097,6 +1245,9 @@
             .content-grid { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: 1fr; }
             .packages-grid { grid-template-columns: 1fr; }
+            .vip-card-container { padding: 1.5rem 1rem; }
+            .vip-table td:first-child { width: 100px; padding: 0.8rem 0.5rem; }
+            .vip-badge-tag { font-size: 0.95rem; padding: 4px 8px; }
             .recharge-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             .help-card { padding: 1.5rem 1.2rem; }
@@ -1121,6 +1272,7 @@
             <a href="#downloads"><i class="fa-solid fa-cloud-arrow-down"></i> 游戏下载</a>
             <a href="#features"><i class="fa-solid fa-dragon"></i> 游戏特色</a>
             <a href="#packages"><i class="fa-solid fa-box-open"></i> 特惠赞助</a>
+            <a href="#vip"><i class="fa-solid fa-crown"></i> VIP特权</a>
             <a href="#help"><i class="fa-solid fa-circle-question"></i> 帮助中心</a>
             <a href="#news"><i class="fa-solid fa-scroll"></i> 江湖告示</a>
             <a href="#gallery"><i class="fa-solid fa-panorama"></i> 视觉鉴赏</a>
@@ -1245,7 +1397,7 @@
             </div>
         </section>
 
-        <!-- ====== 新增：特惠基金与月卡产品专区 ====== -->
+        <!-- 2. 特惠基金与月卡产品专区 -->
         <section class="packages-section" id="packages">
             <h2 class="section-title">❖ 特惠赞助 · 超值特权 ❖</h2>
             <div class="packages-grid">
@@ -1253,7 +1405,7 @@
                 <!-- 产品 1: 成长基金 -->
                 <div class="package-card guofeng-border">
                     <div class="package-img-box">
-                        <img src="成长基金.png" alt="祈雪武林成长基金">
+                        <img src="成长基金.jpg" alt="祈雪武林成长基金">
                         <div class="package-badge-overlay"><i class="fa-solid fa-thumbs-up"></i> 好物推荐</div>
                     </div>
                     <div class="package-content">
@@ -1277,7 +1429,7 @@
                             购买以上产品，游戏内将不计算累积 VIP 积分。
                         </div>
                         <a href="#recharge" class="package-buy-btn">
-                            <i class="fa-solid fa-cart-shopping"></i> 前往扫码充值(联系客服领取)
+                            <i class="fa-solid fa-cart-shopping"></i> 前往扫码充值
                         </a>
                     </div>
                 </div>
@@ -1285,7 +1437,7 @@
                 <!-- 产品 2: 江湖月卡 -->
                 <div class="package-card guofeng-border">
                     <div class="package-img-box">
-                        <img src="江湖月卡.png" alt="祈雪武林江湖月卡">
+                        <img src="江湖月卡.jpg" alt="祈雪武林江湖月卡">
                         <div class="package-badge-overlay" style="background: linear-gradient(135deg, #0d5bb5 0%, #1877f2 100%); border-color: #8cc4ff;">
                             <i class="fa-solid fa-star"></i> 新品推荐
                         </div>
@@ -1310,7 +1462,7 @@
                             江湖月卡有效期为30天，每日奖励需登录领取。
                         </div>
                         <a href="#recharge" class="package-buy-btn">
-                            <i class="fa-solid fa-cart-shopping"></i> 前往扫码充值(联系客服领取)
+                            <i class="fa-solid fa-cart-shopping"></i> 前往扫码充值
                         </a>
                     </div>
                 </div>
@@ -1318,7 +1470,7 @@
                 <!-- 产品 3: 至尊月卡 -->
                 <div class="package-card guofeng-border">
                     <div class="package-img-box">
-                        <img src="月卡.png" alt="祈雪武林至尊月卡">
+                        <img src="月卡.jpg" alt="祈雪武林至尊月卡">
                         <div class="package-badge-overlay" style="background: linear-gradient(135deg, #d32f2f 0%, #ff5722 100%); border-color: #ffd04b;">
                             <i class="fa-solid fa-fire"></i> 爆款推荐
                         </div>
@@ -1343,7 +1495,7 @@
                             至尊月卡有效期为30天，每日奖励需登录领取。
                         </div>
                         <a href="#recharge" class="package-buy-btn">
-                            <i class="fa-solid fa-cart-shopping"></i> 前往扫码充值(联系客服领取)
+                            <i class="fa-solid fa-cart-shopping"></i> 前往扫码充值
                         </a>
                     </div>
                 </div>
@@ -1351,7 +1503,120 @@
             </div>
         </section>
 
-        <!-- 2. 帮助中心专区 (安装指引 + 白名单设置视频) -->
+        <!-- ====== 3. 新增：至尊 VIP 奖励殿堂专区 ====== -->
+        <section class="vip-section" id="vip">
+            <h2 class="section-title">❖ 至尊 VIP 奖励殿堂 ❖</h2>
+            <div class="vip-card-container guofeng-border">
+                
+                <!-- VIP 原图展示位 -->
+                <div class="vip-banner-box">
+                    <img src="VIP.png" alt="至尊VIP奖励殿堂 VIP等级7-14">
+                </div>
+
+                <div class="vip-sub-bar">
+                    <i class="fa-solid fa-gem"></i> VIP 尊享特权 · 阶段专属奖励一览 (VIP 7 - VIP 14)
+                </div>
+
+                <!-- VIP 奖励详情结构化列表/表格 -->
+                <div class="vip-table-scroll">
+                    <table class="vip-table">
+                        <tbody>
+                            <!-- VIP 7 -->
+                            <tr>
+                                <td><span class="vip-badge-tag">VIP 7</span></td>
+                                <td>
+                                    <div class="vip-rewards-wrap">
+                                        <div class="vip-reward-item"><i class="fa-solid fa-gift"></i> 坤鑫·梦生 *1</div>
+                                        <div class="vip-reward-item"><i class="fa-solid fa-horse"></i> 狂勇·坐骑兑换牌 *1</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- VIP 8 -->
+                            <tr>
+                                <td><span class="vip-badge-tag">VIP 8</span></td>
+                                <td>
+                                    <div class="vip-rewards-wrap">
+                                        <div class="vip-reward-item"><i class="fa-solid fa-shield-halved"></i> 圣武兑换卷 *1</div>
+                                        <div class="vip-reward-item"><i class="fa-solid fa-scroll"></i> 十五阶天成符[135级] *4</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- VIP 9 -->
+                            <tr>
+                                <td><span class="vip-badge-tag">VIP 9</span></td>
+                                <td>
+                                    <div class="vip-rewards-wrap">
+                                        <div class="vip-reward-item"><i class="fa-solid fa-horse-head"></i> 圣坐骑兑换牌 *1</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- VIP 10 -->
+                            <tr>
+                                <td><span class="vip-badge-tag">VIP 10</span></td>
+                                <td>
+                                    <div class="vip-rewards-wrap">
+                                        <div class="vip-reward-item"><i class="fa-solid fa-feather"></i> 堕天使 *1</div>
+                                        <div class="vip-reward-item"><i class="fa-solid fa-wine-bottle"></i> 神葫芦 *1</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- VIP 11 -->
+                            <tr>
+                                <td><span class="vip-badge-tag">VIP 11</span></td>
+                                <td>
+                                    <div class="vip-rewards-wrap">
+                                        <div class="vip-reward-item"><i class="fa-solid fa-wand-magic-sparkles"></i> 神武兑换卷 *1</div>
+                                        <div class="vip-reward-item"><i class="fa-solid fa-scroll"></i> 十六阶天成符 *4</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- VIP 12 -->
+                            <tr>
+                                <td><span class="vip-badge-tag">VIP 12</span></td>
+                                <td>
+                                    <div class="vip-rewards-wrap">
+                                        <div class="vip-reward-item"><i class="fa-solid fa-dragon"></i> 逐日之神坐骑兑换牌 *1</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- VIP 13 -->
+                            <tr>
+                                <td><span class="vip-badge-tag">VIP 13</span></td>
+                                <td>
+                                    <div class="vip-rewards-wrap">
+                                        <div class="vip-reward-item"><i class="fa-solid fa-box-archive"></i> 黄金玦锦囊 *1</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- VIP 14 -->
+                            <tr>
+                                <td><span class="vip-badge-tag">VIP 14</span></td>
+                                <td>
+                                    <div class="vip-title-desc">
+                                        <div class="vip-title-head">
+                                            <i class="fa-solid fa-award"></i>
+                                            <span>【专属称号】有钱就是任性</span>
+                                        </div>
+                                        <div class="vip-title-attr">
+                                            <i class="fa-solid fa-angles-right" style="font-size:0.75rem; margin-right:4px;"></i>
+                                            属性加成：所受伤害下降 3%，技能闪避增加 5%，抗致命一击伤害增加 15%
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="vip-notice-bottom">
+                    <i class="fa-solid fa-crown" style="color: #ffd04b; margin-right: 5px;"></i>
+                    本阶段专属奖励已为您备好，充值元宝即可同步累积 VIP 等级积分，自动解锁丰厚特权！
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. 帮助中心专区 (安装指引 + 白名单设置视频) -->
         <section class="help-section" id="help">
             <h2 class="section-title">帮助中心</h2>
             <div class="help-card">
@@ -1404,7 +1669,7 @@
             </div>
         </section>
 
-        <!-- 3. 公告与更新区 -->
+        <!-- 5. 公告与更新区 -->
         <div class="content-grid" id="news">
             
             <!-- 游戏公告框 -->
@@ -1489,7 +1754,7 @@
 
         </div>
 
-        <!-- 4. 游戏图片展示区 -->
+        <!-- 6. 游戏图片展示区 -->
         <section class="gallery-section" id="gallery">
             <h2 class="section-title">❖ 江湖风采 · 视觉盛宴 ❖</h2>
             <div class="gallery-grid">
@@ -1516,7 +1781,7 @@
             </div>
         </section>
 
-        <!-- 5. 充值赞助专区 -->
+        <!-- 7. 充值赞助专区 -->
         <section class="recharge-section" id="recharge">
             <h2 class="section-title">❖ 充值赞助 · 快捷通道 ❖</h2>
             <div class="recharge-card guofeng-border">
@@ -1590,7 +1855,7 @@
             </div>
         </section>
 
-        <!-- 6. 社交专区与客服支持 -->
+        <!-- 8. 社区专区与客服支持 -->
         <section class="social-support-section" id="support">
             
             <!-- Facebook 粉丝专页 -->
