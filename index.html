@@ -660,6 +660,177 @@
             letter-spacing: 1px;
         }
 
+        /* ====== 新增：特惠基金与月卡产品专区样式 ====== */
+        .packages-section {
+            margin-bottom: 4rem;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: var(--card-bg);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold-light);
+            box-shadow: 0 16px 40px rgba(213, 162, 83, 0.25);
+        }
+
+        .package-img-box {
+            position: relative;
+            width: 100%;
+            background: #000;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .package-img-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .package-card:hover .package-img-box img {
+            transform: scale(1.04);
+        }
+
+        .package-badge-overlay {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #ba3232 0%, #701616 100%);
+            border: 1px solid #ff8585;
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+            letter-spacing: 1px;
+        }
+
+        .package-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .package-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.6rem;
+        }
+
+        .package-title {
+            font-size: 1.35rem;
+            font-weight: bold;
+            color: #ffd04b;
+            letter-spacing: 1px;
+        }
+
+        .package-rate {
+            background: rgba(213, 162, 83, 0.15);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .package-price-box {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dashed rgba(213, 162, 83, 0.2);
+        }
+
+        .package-price-val {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #ff5252;
+        }
+
+        .package-limit-desc {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .package-detail-list {
+            list-style: none;
+            margin-bottom: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            font-size: 0.92rem;
+            flex-grow: 1;
+        }
+
+        .package-detail-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.5;
+            color: #dedbd3;
+        }
+
+        .package-detail-list li i {
+            color: var(--gold-primary);
+            font-size: 0.8rem;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .package-notice {
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 3px solid #ffd04b;
+            padding: 8px 12px;
+            font-size: 0.82rem;
+            color: #a4a095;
+            margin-bottom: 1.2rem;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .package-buy-btn {
+            background: linear-gradient(135deg, #e5b364 0%, #9e712a 100%);
+            color: #1a1003;
+            text-decoration: none;
+            text-align: center;
+            padding: 0.75rem;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1px solid var(--gold-light);
+        }
+
+        .package-buy-btn:hover {
+            background: linear-gradient(135deg, #fae29f 0%, #b88636 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(213, 162, 83, 0.4);
+        }
+
         /* 充值赞助专区样式 */
         .recharge-section {
             margin-bottom: 4rem;
@@ -925,6 +1096,7 @@
             .hero h1 { font-size: 2.3rem; }
             .content-grid { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: 1fr; }
+            .packages-grid { grid-template-columns: 1fr; }
             .recharge-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             .help-card { padding: 1.5rem 1.2rem; }
@@ -948,6 +1120,7 @@
         <nav>
             <a href="#downloads"><i class="fa-solid fa-cloud-arrow-down"></i> 游戏下载</a>
             <a href="#features"><i class="fa-solid fa-dragon"></i> 游戏特色</a>
+            <a href="#packages"><i class="fa-solid fa-box-open"></i> 特惠赞助</a>
             <a href="#help"><i class="fa-solid fa-circle-question"></i> 帮助中心</a>
             <a href="#news"><i class="fa-solid fa-scroll"></i> 江湖告示</a>
             <a href="#gallery"><i class="fa-solid fa-panorama"></i> 视觉鉴赏</a>
@@ -1067,6 +1240,112 @@
                         <li><i class="fa-solid fa-angles-right"></i><span>全新宠物系统：支持一键扫荡剧本，省时省力极速减负！</span></li>
                         <li><i class="fa-solid fa-angles-right"></i><span>仿官服设定，<span class="highlight-text">所有职业技能原汁原味、绝无魔改</span>！</span></li>
                     </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ====== 新增：特惠基金与月卡产品专区 ====== -->
+        <section class="packages-section" id="packages">
+            <h2 class="section-title">❖ 特惠赞助 · 超值特权 ❖</h2>
+            <div class="packages-grid">
+                
+                <!-- 产品 1: 成长基金 -->
+                <div class="package-card guofeng-border">
+                    <div class="package-img-box">
+                        <img src="成长基金.png" alt="祈雪武林成长基金">
+                        <div class="package-badge-overlay"><i class="fa-solid fa-thumbs-up"></i> 好物推荐</div>
+                    </div>
+                    <div class="package-content">
+                        <div class="package-title-row">
+                            <span class="package-title">成长基金</span>
+                            <span class="package-rate">超值 800% 返利</span>
+                        </div>
+                        <div class="package-price-box">
+                            <span class="package-price-val">RM 50</span>
+                            <span class="package-limit-desc">/ 每个角色只限购买一次</span>
+                        </div>
+                        <ul class="package-detail-list">
+                            <li><i class="fa-solid fa-circle-check"></i><span><strong>100 等级返利：</strong>400 绑定元宝</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i><span><strong>105 等级返利：</strong>600 绑定元宝</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i><span><strong>110 等级返利：</strong>800 绑定元宝</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i><span><strong>115 等级返利：</strong>1000 绑定元宝</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i><span><strong>120 等级返利：</strong>1200 绑定元宝</span></li>
+                        </ul>
+                        <div class="package-notice">
+                            <i class="fa-solid fa-circle-exclamation" style="color: #ffd04b; margin-right: 4px;"></i>
+                            购买以上产品，游戏内将不计算累积 VIP 积分。
+                        </div>
+                        <a href="#recharge" class="package-buy-btn">
+                            <i class="fa-solid fa-cart-shopping"></i> 前往扫码充值(联系客服领取)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 产品 2: 江湖月卡 -->
+                <div class="package-card guofeng-border">
+                    <div class="package-img-box">
+                        <img src="江湖月卡.png" alt="祈雪武林江湖月卡">
+                        <div class="package-badge-overlay" style="background: linear-gradient(135deg, #0d5bb5 0%, #1877f2 100%); border-color: #8cc4ff;">
+                            <i class="fa-solid fa-star"></i> 新品推荐
+                        </div>
+                    </div>
+                    <div class="package-content">
+                        <div class="package-title-row">
+                            <span class="package-title">江湖月卡</span>
+                            <span class="package-rate">超值返利 160%</span>
+                        </div>
+                        <div class="package-price-box">
+                            <span class="package-price-val">RM 50</span>
+                            <span class="package-limit-desc">/ 每个账号每月只限购买一张</span>
+                        </div>
+                        <ul class="package-detail-list">
+                            <li><i class="fa-solid fa-bolt-lightning"></i><span><strong>立即获得（一次性）：</strong>200 元宝</span></li>
+                            <li><i class="fa-solid fa-calendar-check"></i><span><strong>每日登录可获（30天）：</strong>30 元宝 / 天</span></li>
+                            <li><i class="fa-solid fa-hourglass-half"></i><span><strong>规则说明：</strong>同类型的月卡不能重叠使用</span></li>
+                            <li><i class="fa-solid fa-coins"></i><span><strong>总计可得：</strong>共计 1,100 元宝</span></li>
+                        </ul>
+                        <div class="package-notice">
+                            <i class="fa-solid fa-circle-info" style="color: #ffd04b; margin-right: 4px;"></i>
+                            江湖月卡有效期为30天，每日奖励需登录领取。
+                        </div>
+                        <a href="#recharge" class="package-buy-btn">
+                            <i class="fa-solid fa-cart-shopping"></i> 前往扫码充值(联系客服领取)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 产品 3: 至尊月卡 -->
+                <div class="package-card guofeng-border">
+                    <div class="package-img-box">
+                        <img src="月卡.png" alt="祈雪武林至尊月卡">
+                        <div class="package-badge-overlay" style="background: linear-gradient(135deg, #d32f2f 0%, #ff5722 100%); border-color: #ffd04b;">
+                            <i class="fa-solid fa-fire"></i> 爆款推荐
+                        </div>
+                    </div>
+                    <div class="package-content">
+                        <div class="package-title-row">
+                            <span class="package-title">至尊月卡</span>
+                            <span class="package-rate">超值返利 275%</span>
+                        </div>
+                        <div class="package-price-box">
+                            <span class="package-price-val">RM 100</span>
+                            <span class="package-limit-desc">/ 每个账号每月只限购买一张</span>
+                        </div>
+                        <ul class="package-detail-list">
+                            <li><i class="fa-solid fa-bolt-lightning"></i><span><strong>立即获得（一次性）：</strong>500 元宝</span></li>
+                            <li><i class="fa-solid fa-calendar-check"></i><span><strong>每日登录可获（30天）：</strong>75 元宝 / 天</span></li>
+                            <li><i class="fa-solid fa-hourglass-half"></i><span><strong>规则说明：</strong>同类型的月卡不能重叠使用</span></li>
+                            <li><i class="fa-solid fa-coins"></i><span><strong>总计可得：</strong>共计 2,750 元宝</span></li>
+                        </ul>
+                        <div class="package-notice">
+                            <i class="fa-solid fa-circle-info" style="color: #ffd04b; margin-right: 4px;"></i>
+                            至尊月卡有效期为30天，每日奖励需登录领取。
+                        </div>
+                        <a href="#recharge" class="package-buy-btn">
+                            <i class="fa-solid fa-cart-shopping"></i> 前往扫码充值(联系客服领取)
+                        </a>
+                    </div>
                 </div>
 
             </div>
@@ -1237,7 +1516,7 @@
             </div>
         </section>
 
-        <!-- 5. 充值赞助专区 (移至页面下方，视觉更自然体面) -->
+        <!-- 5. 充值赞助专区 -->
         <section class="recharge-section" id="recharge">
             <h2 class="section-title">❖ 充值赞助 · 快捷通道 ❖</h2>
             <div class="recharge-card guofeng-border">
@@ -1257,7 +1536,6 @@
                             <span>DuitNow / 银行扫码</span>
                         </div>
                         <div class="qr-image-wrapper">
-                            <!-- 请将图片命名为 QR.png 放在同级目录 -->
                             <img src="DNW2.png" alt="DuitNow 收款二维码">
                         </div>
                         <div class="qr-desc">支持各大银行 App / 马来西亚 DuitNow 扫码</div>
@@ -1270,7 +1548,6 @@
                             <span>Touch 'n Go eWallet</span>
                         </div>
                         <div class="qr-image-wrapper">
-                            <!-- 请将图片命名为 TNG.png 放在同级目录 -->
                             <img src="TNG2.png" alt="TNG 收款二维码">
                         </div>
                         <div class="qr-desc">支持 Touch 'n Go 电子钱包极速扫码转账</div>
