@@ -775,17 +775,44 @@
             background: #000;
             overflow: hidden;
             border-bottom: 1px solid var(--border-gold);
+            cursor: pointer;
         }
 
         .package-img-box img {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.5s ease;
+            transition: transform 0.4s ease, filter 0.3s ease;
         }
 
-        .package-card:hover .package-img-box img {
-            transform: scale(1.04);
+        .zoom-hint {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(12, 14, 18, 0.85);
+            border: 1px solid var(--border-gold);
+            color: var(--gold-light);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 0.85;
+        }
+
+        .package-img-box:hover img {
+            transform: scale(1.03);
+            filter: brightness(1.08);
+        }
+
+        .package-img-box:hover .zoom-hint {
+            opacity: 1;
+            transform: scale(1.05);
+            color: #ffd04b;
+            border-color: var(--gold-light);
         }
 
         /* 图片下方的推荐标签条 */
@@ -952,12 +979,26 @@
             margin-bottom: 1.2rem;
             background: #000;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+            cursor: pointer;
         }
 
         .vip-banner-box img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.4s ease, filter 0.3s ease;
+        }
+
+        .vip-banner-box:hover img {
+            transform: scale(1.02);
+            filter: brightness(1.08);
+        }
+
+        .vip-banner-box:hover .zoom-hint {
+            opacity: 1;
+            transform: scale(1.05);
+            color: #ffd04b;
+            border-color: var(--gold-light);
         }
 
         .vip-action-bar {
@@ -1246,6 +1287,78 @@
             margin-bottom: 0.5rem;
         }
 
+        /* ====== 灯箱大图预览弹窗 (Lightbox Modal) ====== */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 6, 8, 0.88);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content-wrap {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: scale(0.92);
+            transition: transform 0.3s ease;
+        }
+
+        .image-modal.active .modal-content-wrap {
+            transform: scale(1);
+        }
+
+        .modal-img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 6px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 0 35px rgba(213, 162, 83, 0.4), 0 20px 50px rgba(0,0,0,0.9);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: -42px;
+            right: 0;
+            color: var(--gold-light);
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border-gold);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close-btn:hover {
+            color: #fff;
+            background: var(--crimson);
+            border-color: #ff9e9e;
+            transform: rotate(90deg);
+        }
+
         /* 移动端响应式适配 */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.3rem; }
@@ -1261,6 +1374,7 @@
             .help-card { padding: 1.5rem 1.2rem; }
             header { flex-direction: column; gap: 12px; padding: 1rem; }
             nav a { margin: 0 0.5rem; font-size: 0.92rem; }
+            .modal-content-wrap { max-width: 95vw; }
         }
     </style>
 </head>
@@ -1412,8 +1526,9 @@
                 
                 <!-- 产品 1: 成长基金 -->
                 <div class="package-card guofeng-border">
-                    <div class="package-img-box">
+                    <div class="package-img-box" onclick="openModal('成长基金.png', '祈雪武林 · 成长基金')">
                         <img src="成长基金.png" alt="祈雪武林成长基金">
+                        <div class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> 点击放大</div>
                     </div>
                     <div class="package-content">
                         <!-- 移动至图片下方的标签条 -->
@@ -1447,8 +1562,9 @@
 
                 <!-- 产品 2: 江湖月卡 -->
                 <div class="package-card guofeng-border">
-                    <div class="package-img-box">
+                    <div class="package-img-box" onclick="openModal('江湖月卡.png', '祈雪武林 · 江湖月卡')">
                         <img src="江湖月卡.png" alt="祈雪武林江湖月卡">
+                        <div class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> 点击放大</div>
                     </div>
                     <div class="package-content">
                         <!-- 移动至图片下方的标签条 -->
@@ -1481,8 +1597,9 @@
 
                 <!-- 产品 3: 至尊月卡 -->
                 <div class="package-card guofeng-border">
-                    <div class="package-img-box">
+                    <div class="package-img-box" onclick="openModal('月卡.png', '祈雪武林 · 至尊月卡')">
                         <img src="月卡.png" alt="祈雪武林至尊月卡">
+                        <div class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> 点击放大</div>
                     </div>
                     <div class="package-content">
                         <!-- 移动至图片下方的标签条 -->
@@ -1521,9 +1638,10 @@
             <h2 class="section-title">❖ 至尊 VIP 奖励殿堂 ❖</h2>
             <div class="vip-card-container guofeng-border">
                 
-                <!-- VIP 原图展示位 -->
-                <div class="vip-banner-box">
+                <!-- VIP 原图展示位 (支持点击放大) -->
+                <div class="vip-banner-box" onclick="openModal('VIP.png', '至尊 VIP 奖励殿堂')">
                     <img src="VIP.png" alt="至尊VIP奖励殿堂 VIP等级7-14">
+                    <div class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> 点击放大查看奖励</div>
                 </div>
 
                 <!-- 底部精简引导操作条 -->
@@ -1711,22 +1829,22 @@
             <h2 class="section-title">❖ 江湖风采 · 视觉盛宴 ❖</h2>
             <div class="gallery-grid">
                 <!-- 图片 1 -->
-                <div class="gallery-card guofeng-border">
+                <div class="gallery-card guofeng-border" onclick="openModal('P1.png', '重铸经典 · 七侠镇繁华再现')" style="cursor: pointer;">
                     <img src="P1.png" alt="七侠镇风光">
                     <div class="gallery-caption">重铸经典 · 七侠镇繁华再现</div>
                 </div>
                 <!-- 图片 2 -->
-                <div class="gallery-card guofeng-border">
+                <div class="gallery-card guofeng-border" onclick="openModal('P2.png', '群雄争霸 · 问鼎武林之巅')" style="cursor: pointer;">
                     <img src="P2.png" alt="帮派对战">
                     <div class="gallery-caption">群雄争霸 · 问鼎武林之巅</div>
                 </div>
                 <!-- 图片 3 -->
-                <div class="gallery-card guofeng-border">
+                <div class="gallery-card guofeng-border" onclick="openModal('P3.png', '新功能 · 轻松传送挑战BOSS')" style="cursor: pointer;">
                     <img src="P3.png" alt="秘境历练">
                     <div class="gallery-caption">新功能 · 轻松传送挑战BOSS</div>
                 </div>
                 <!-- 图片 4 -->
-                <div class="gallery-card guofeng-border">
+                <div class="gallery-card guofeng-border" onclick="openModal('P4.png', '新功能 · 战力排行榜')" style="cursor: pointer;">
                     <img src="P4.png" alt="华美霓裳">
                     <div class="gallery-caption">新功能 · 战力排行榜</div>
                 </div>
@@ -1752,7 +1870,7 @@
                             <i class="fa-solid fa-qrcode" style="color: #ffd04b;"></i>
                             <span>DuitNow / 银行扫码</span>
                         </div>
-                        <div class="qr-image-wrapper">
+                        <div class="qr-image-wrapper" onclick="openModal('DNW2.png', 'DuitNow 收款码')" style="cursor: pointer;">
                             <img src="DNW2.png" alt="DuitNow 收款二维码">
                         </div>
                         <div class="qr-desc">支持各大银行 App / 马来西亚 DuitNow 扫码</div>
@@ -1764,7 +1882,7 @@
                             <i class="fa-solid fa-wallet" style="color: #0084ff;"></i>
                             <span>Touch 'n Go eWallet</span>
                         </div>
-                        <div class="qr-image-wrapper">
+                        <div class="qr-image-wrapper" onclick="openModal('TNG2.png', 'Touch n Go 收款码')" style="cursor: pointer;">
                             <img src="TNG2.png" alt="TNG 收款二维码">
                         </div>
                         <div class="qr-desc">支持 Touch 'n Go 电子钱包极速扫码转账</div>
@@ -1853,11 +1971,50 @@
         </section>
     </main>
 
+    <!-- 灯箱弹窗挂载容器 -->
+    <div id="imageModal" class="image-modal" onclick="closeModal(event)">
+        <div class="modal-content-wrap">
+            <span class="modal-close-btn" onclick="closeModalDirect()">&times;</span>
+            <img id="modalTargetImg" class="modal-img" src="" alt="放大预览图">
+        </div>
+    </div>
+
     <!-- 底部版权 -->
     <footer>
         <p>本游戏官方运营与技术支持由 <strong>祈雪工作室 QIXUE STUDIO</strong> 提供</p>
         <p>© 2026 祈雪工作室 QIXUE STUDIO · 《武林外传》 </p>
     </footer>
+
+    <!-- 大图放大交互脚本 -->
+    <script>
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalTargetImg');
+
+        function openModal(src, alt) {
+            modalImg.src = src;
+            modalImg.alt = alt || '大图预览';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // 禁止背景滚动
+        }
+
+        function closeModal(e) {
+            if (e.target === modal) {
+                closeModalDirect();
+            }
+        }
+
+        function closeModalDirect() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // 支持键盘 ESC 退出预览
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModalDirect();
+            }
+        });
+    </script>
 
 </body>
 </html>
