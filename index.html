@@ -625,6 +625,38 @@
             margin: 0;
         }
 
+        /* 551.png 图文教程点击按钮 */
+        .tutorial-image-btn-box {
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+
+        .tutorial-image-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #8c6426 0%, #d5a253 50%, #8c6426 100%);
+            color: #1a1003 !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 0.96rem;
+            font-weight: 900;
+            text-decoration: none;
+            border: 1px solid #fbe3a9;
+            box-shadow: 0 4px 18px rgba(213, 162, 83, 0.35);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        .tutorial-image-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #a8782f 0%, #fbe3a9 50%, #a8782f 100%);
+            box-shadow: 0 6px 22px rgba(213, 162, 83, 0.55);
+            color: #000 !important;
+        }
+
         /* 可折叠的疑难排查手风琴 */
         .help-details {
             background: rgba(0, 0, 0, 0.35);
@@ -2077,7 +2109,7 @@
             </div>
         </section>
 
-        <!-- 5. 帮助中心专区 (Inno 安装适配：主流极简 + 疑难折叠) -->
+        <!-- 5. 帮助中心专区 (Inno 安装适配：主流极简 + 图片指引 + 疑难折叠) -->
         <section class="help-section" id="help">
             <h2 class="section-title">帮助中心</h2>
             <div class="help-card">
@@ -2092,7 +2124,7 @@
                         <div class="step-num">1</div>
                         <div class="step-info">
                             <strong>下载安装程序</strong>
-                            <p>前往下载区下载官方安装包（.exe）。</p>
+                            <p>前往下载区下载官方安装包（Qixueonline_setup.exe）。</p>
                         </div>
                     </div>
                     <div class="install-step-item">
@@ -2106,8 +2138,17 @@
                         <div class="step-num">3</div>
                         <div class="step-info">
                             <strong>启动与畅玩</strong>
-                            <p>桌面打开登录器注册账号，点击“开始游戏”[cite: 3]。</p>
+                            <p>桌面打开登录器注册账号，点击“开始游戏”。</p>
                         </div>
+                    </div>
+                </div>
+
+                <!-- 551.png 图文教程弹窗触发按钮 -->
+                <div class="tutorial-image-btn-box">
+                    <div class="tutorial-image-btn" onclick="openModal('551.png', '游戏安装指引图文教程')">
+                        <i class="fa-solid fa-image"></i>
+                        <span>点击查看【安装流程全步骤】图文指引</span>
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
                     </div>
                 </div>
 
@@ -2120,21 +2161,21 @@
                     <div class="help-details-content">
                         <ul class="help-list">
                             <li>
-                                <strong>防毒拦截处理：</strong>由于游戏采用专属启动器，部分杀毒软件可能误判[cite: 3]。安装或运行时若被拦截，请选择“仍要运行 / 信任此程序”[cite: 3]。
+                                <strong>防毒拦截处理：</strong>由于游戏采用专属启动器，部分杀毒软件可能误判。安装或运行时若被拦截，请选择“仍要运行 / 信任此程序”。
                             </li>
                             <li>
-                                <strong>WINRAR 解压器（如使用压缩包）：</strong><a href="https://www.win-rar.com/download.html" target="_blank" class="help-link-gold">官方下载通道</a>[cite: 3]
+                                <strong>WINRAR 解压器（如使用压缩包）：</strong><a href="https://www.win-rar.com/download.html" target="_blank" class="help-link-gold">官方下载通道</a>
                             </li>
                             <li>
-                                <strong>版本更新注意：</strong>发布服务器更新时，请先关闭所有运行中的游戏程序（如 elementclient.exe），再打开登录器进行更新，避免文件占用导致更新失败[cite: 3]。
+                                <strong>版本更新注意：</strong>发布服务器更新时，请先关闭所有运行中的游戏程序（如 elementclient.exe），再打开登录器进行更新，避免文件占用导致更新失败。
                             </li>
                             <li>
                                 <strong>添加 Windows Defender 白名单（备用排查）：</strong>
                                 <div class="help-steps-list">
-                                    <div>1. 在系统开始菜单搜索 <strong>Virus & threat protection</strong> 并打开[cite: 3]。</div>
-                                    <div>2. 进入 <strong>Manage settings</strong>（管理设置）[cite: 3]。</div>
-                                    <div>3. 下滑至 <strong>Exclusions</strong>，点击 <strong>Add or remove exclusions</strong>[cite: 3]。</div>
-                                    <div>4. 点击 <strong>Add an exclusion</strong>，选择 <strong>Folder</strong> 并添加游戏安装目录[cite: 3]。</div>
+                                    <div>1. 在系统开始菜单搜索 <strong>Virus & threat protection</strong> 并打开。</div>
+                                    <div>2. 进入 <strong>Manage settings</strong>（管理设置）。</div>
+                                    <div>3. 下滑至 <strong>Exclusions</strong>，点击 <strong>Add or remove exclusions</strong>。</div>
+                                    <div>4. 点击 <strong>Add an exclusion</strong>，选择 <strong>Folder</strong> 并添加游戏安装目录。</div>
                                 </div>
                                 <div style="margin-top: 8px;">
                                     <a href="https://www.facebook.com/qixuegame/videos/" target="_blank" class="tutorial-video-btn">
@@ -2145,7 +2186,7 @@
                                 </div>
                             </li>
                             <li>
-                                <strong>客服协助：</strong>如仍无法启动，请随时联系 Facebook 在线客服协助排查[cite: 3]。
+                                <strong>客服协助：</strong>如仍无法启动，请随时联系 Facebook 在线客服协助排查。
                             </li>
                         </ul>
                     </div>
@@ -2153,7 +2194,7 @@
 
                 <div class="help-notice">
                     <i class="fa-solid fa-circle-info" style="color: #ffd04b; margin-right: 5px;"></i>
-                    <strong>安装提示：</strong>安装前请确保目标磁盘剩余空间 ≥5GB，建议安装在非系统盘（如 D 盘）[cite: 3]。
+                    <strong>安装提示：</strong>安装前请确保目标磁盘剩余空间 ≥5GB，建议安装在非系统盘（如 D 盘）。
                 </div>
             </div>
         </section>
