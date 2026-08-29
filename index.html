@@ -492,7 +492,7 @@
             vertical-align: middle;
         }
 
-        /* 帮助中心样式 */
+        /* 帮助中心样式（针对 Inno Setup 优化） */
         .help-section {
             margin-bottom: 4rem;
         }
@@ -518,12 +518,94 @@
             gap: 10px;
         }
 
+        .quick-install-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .install-step-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .step-num {
+            background: linear-gradient(135deg, #d5a253 0%, #8c6426 100%);
+            color: #1a1003;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .step-info strong {
+            color: #ffd04b;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .step-info p {
+            font-size: 0.88rem;
+            color: #c9c5ba;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* 可折叠的疑难排查手风琴 */
+        .help-details {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px dashed rgba(213, 162, 83, 0.35);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .help-details[open] {
+            border-color: var(--gold-light);
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .help-summary {
+            padding: 0.9rem 1.2rem;
+            cursor: pointer;
+            color: var(--gold-light);
+            font-weight: bold;
+            font-size: 0.96rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        .help-summary:hover {
+            color: #fff;
+            background: rgba(213, 162, 83, 0.08);
+        }
+
+        .help-details-content {
+            padding: 0.8rem 1.4rem 1.4rem;
+            border-top: 1px solid rgba(213, 162, 83, 0.15);
+        }
+
         .help-list {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 1.1rem;
-            font-size: 0.95rem;
+            font-size: 0.93rem;
             line-height: 1.8;
             color: #e2dfd7;
         }
@@ -593,10 +675,10 @@
         }
 
         .help-notice {
-            margin-top: 1.5rem;
-            padding-top: 1rem;
+            margin-top: 1.2rem;
+            padding-top: 0.9rem;
             border-top: 1px dashed rgba(213, 162, 83, 0.25);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: #a4a095;
         }
 
@@ -1173,6 +1255,7 @@
             .vip-card-container { padding: 1.2rem 1rem; }
             .vip-action-bar { flex-direction: column; text-align: center; }
             .vip-action-text { text-align: center; justify-content: center; }
+            .quick-install-box { grid-template-columns: 1fr; }
             .recharge-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             .help-card { padding: 1.5rem 1.2rem; }
@@ -1457,55 +1540,83 @@
             </div>
         </section>
 
-        <!-- 4. 帮助中心专区 (安装指引 + 白名单设置视频) -->
+        <!-- 4. 帮助中心专区 (Inno 安装适配：主流极简 + 疑难折叠) -->
         <section class="help-section" id="help">
             <h2 class="section-title">帮助中心</h2>
             <div class="help-card">
                 <div class="help-inner-title">
                     <i class="fa-solid fa-desktop"></i>
-                    <span>安装与下载 (Windows)</span>
+                    <span>安装与启动指引 (Windows)</span>
                 </div>
-                <ul class="help-list">
-                    <li>
-                        <strong>客户端下载：</strong>前往 <a href="#downloads" class="help-link-gold">官网页面</a>，选择【客户端下载】。
-                    </li>
-                    <li>
-                        <strong>WINRAR解压器下载：</strong><a href="https://www.win-rar.com/download.html" target="_blank" class="help-link-gold">立即下载</a>
-                    </li>
-                    <li>
-                        <strong>Windows 安装：</strong>使用WINRAR解压后；若被安全软件拦截，选择“仍要运行/信任此文件”。
-                    </li>
-                    <li>
-                        <strong>提醒事项：</strong>由于游戏采用专属启动器，部分安全软件或杀毒程序可能会误判为异常文件。为确保顺利运行，请在解压或安装前，将整个游戏文件夹加入到防毒软件的信任区 / 白名单中，以避免文件被拦截或误删，造成启动失败。
-                    </li>
-                    <li>
-                        <strong>版本更新：</strong>若 GM 发布服务器更新，请务必先关闭所有正在运行的游戏程序（如 elementclient.exe），再重新打开登录器以进行更新。若在更新过程中仍保持登录器或游戏程序开启，可能导致补丁更新中断或文件损坏。一旦出现此情况，建议重新解压整个游戏文件夹后再启动游戏。
-                    </li>
-                    <li>
-                        <strong>白名单设置（建议解压前完成）：</strong>为避免安装或运行时被安全软件误删，请在解压前将游戏文件夹加入 Windows Defender 的白名单。步骤：
-                        <div class="help-steps-list">
-                            <div>1. 在开始菜单搜索 <strong>Virus & threat protection</strong> 并打开。</div>
-                            <div>2. 进入 <strong>Manage settings</strong>（管理设置）。</div>
-                            <div>3. 下滑到 <strong>Exclusions</strong>（排除项），点击 <strong>Add or remove exclusions</strong>（添加或移除排除项）。</div>
-                            <div>4. 点击 <strong>Add an exclusion</strong>（添加排除项），选择 <strong>Folder</strong>（文件夹）。</div>
-                            <div>5. 添加 <strong>整个游戏文件夹</strong> 或所在磁盘（如 D:\）。</div>
+                
+                <!-- 极简三步（适配 Inno Setup 安装包） -->
+                <div class="quick-install-box">
+                    <div class="install-step-item">
+                        <div class="step-num">1</div>
+                        <div class="step-info">
+                            <strong>下载安装程序</strong>
+                            <p>前往下载区下载官方安装包（.exe）。</p>
                         </div>
-                        <!-- Facebook 白名单视频教程跳转按钮 -->
-                        <div style="margin-top: 8px;">
-                            <a href="https://www.facebook.com/qixuegame/videos/" target="_blank" class="tutorial-video-btn">
-                                <i class="fa-brands fa-facebook"></i>
-                                <i class="fa-solid fa-play-circle"></i>
-                                <span>点击观看【白名单设置】Facebook 视频教程</span>
-                            </a>
+                    </div>
+                    <div class="install-step-item">
+                        <div class="step-num">2</div>
+                        <div class="step-info">
+                            <strong>一键安装</strong>
+                            <p>双击运行安装向导，按提示完成快速安装。</p>
                         </div>
-                    </li>
-                    <li>
-                        <strong>账号与启动：</strong>在登陆器【Qixueonline】内注册账号后，点击“开始游戏”。如无法启动，请联系FACEBOOK在线客服。
-                    </li>
-                </ul>
+                    </div>
+                    <div class="install-step-item">
+                        <div class="step-num">3</div>
+                        <div class="step-info">
+                            <strong>启动与畅玩</strong>
+                            <p>桌面打开登录器注册账号，点击“开始游戏”。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 疑难排查与手动设置折叠抽屉（作为备用方案） -->
+                <details class="help-details">
+                    <summary class="help-summary">
+                        <span><i class="fa-solid fa-circle-question" style="margin-right: 6px;"></i> 安装异常 / 杀毒误拦 / 更新失败？点击查看疑难解答与排查指南</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </summary>
+                    <div class="help-details-content">
+                        <ul class="help-list">
+                            <li>
+                                <strong>防毒拦截处理：</strong>由于游戏采用专属启动器，部分杀毒软件可能误判。安装或运行时若被拦截，请选择“仍要运行 / 信任此程序”。
+                            </li>
+                            <li>
+                                <strong>WINRAR 解压器（如使用压缩包）：</strong><a href="https://www.win-rar.com/download.html" target="_blank" class="help-link-gold">官方下载通道</a>
+                            </li>
+                            <li>
+                                <strong>版本更新注意：</strong>发布服务器更新时，请先关闭所有运行中的游戏程序（如 elementclient.exe），再打开登录器进行更新，避免文件占用导致更新失败。
+                            </li>
+                            <li>
+                                <strong>添加 Windows Defender 白名单（备用排查）：</strong>
+                                <div class="help-steps-list">
+                                    <div>1. 在系统开始菜单搜索 <strong>Virus & threat protection</strong> 并打开。</div>
+                                    <div>2. 进入 <strong>Manage settings</strong>（管理设置）。</div>
+                                    <div>3. 下滑至 <strong>Exclusions</strong>，点击 <strong>Add or remove exclusions</strong>。</div>
+                                    <div>4. 点击 <strong>Add an exclusion</strong>，选择 <strong>Folder</strong> 并添加游戏安装目录。</div>
+                                </div>
+                                <div style="margin-top: 8px;">
+                                    <a href="https://www.facebook.com/qixuegame/videos/" target="_blank" class="tutorial-video-btn">
+                                        <i class="fa-brands fa-facebook"></i>
+                                        <i class="fa-solid fa-play-circle"></i>
+                                        <span>查看【白名单设置】Facebook 视频教程</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <strong>客服协助：</strong>如仍无法启动，请随时联系 Facebook 在线客服协助排查。
+                            </li>
+                        </ul>
+                    </div>
+                </details>
+
                 <div class="help-notice">
                     <i class="fa-solid fa-circle-info" style="color: #ffd04b; margin-right: 5px;"></i>
-                    <strong>提示：</strong>安装/解压前请保持磁盘剩余空间≥5GB，尽量放在非系统盘（如 D:/Games/）。
+                    <strong>安装提示：</strong>安装前请确保目标磁盘剩余空间 ≥5GB，建议安装在非系统盘（如 D 盘）。
                 </div>
             </div>
         </section>
