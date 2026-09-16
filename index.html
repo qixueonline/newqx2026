@@ -268,7 +268,7 @@
             margin: 0 auto 2.8rem;
         }
 
-        /* 核心下载专区 (三按键) */
+        /* 核心下载专区 (四按键网格适配) */
         .download-container {
             max-width: 960px;
             margin: 0 auto;
@@ -280,7 +280,7 @@
 
         .btn-group {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
         }
 
@@ -338,6 +338,20 @@
             transform: translateY(-3px);
             background: linear-gradient(135deg, #d93d3d 0%, #8c1c1c 100%);
             box-shadow: 0 10px 28px rgba(217, 61, 61, 0.55);
+        }
+
+        /* 手动补丁按键 - 青玉茶绿风格 */
+        .btn-patch {
+            background: linear-gradient(135deg, #2b6a5a 0%, #16382f 100%);
+            color: #fff;
+            border: 1px solid rgba(130, 224, 190, 0.4);
+            box-shadow: 0 6px 20px rgba(43, 106, 90, 0.35);
+        }
+
+        .btn-patch:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #378571 0%, #1c473c 100%);
+            box-shadow: 0 10px 28px rgba(55, 133, 113, 0.55);
         }
 
         .btn-icon {
@@ -1760,7 +1774,7 @@
         <h1>《祈雪·武林外传》 <span>官方网站</span></h1>
         <p>同福相聚，重谱侠骨柔情。畅享极致稳定的武侠经典世界！</p>
 
-        <!-- 游戏下载按钮区 -->
+        <!-- 游戏下载按钮区 (已新增【手动补丁】按钮) -->
         <div class="download-container guofeng-border">
             <div class="btn-group">
                 <!-- 1. 官方高速下载 -->
@@ -1787,6 +1801,15 @@
                     <div style="text-align: left;">
                         <div class="btn-text-sub">微端极速启动</div>
                         <div class="btn-text-main">官方登录器下载</div>
+                    </div>
+                </a>
+
+                <!-- 4. 手动补丁 (新增) -->
+                <a href="https://drive.google.com/file/d/1SRWKBzm6a-LbQEUedJqPp2oJfcQVu5Um/view?usp=sharing" class="btn btn-patch guofeng-border" target="_blank">
+                    <i class="fa-solid fa-file-zipper btn-icon"></i>
+                    <div style="text-align: left;">
+                        <div class="btn-text-sub">Updated 16/5/2026</div>
+                        <div class="btn-text-main">手动补丁下载</div>
                     </div>
                 </a>
             </div>
