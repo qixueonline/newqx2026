@@ -1804,7 +1804,7 @@
                     </div>
                 </a>
 
-                <!-- 4. 手动补丁 -->
+                <!-- 4. 手动补丁 (已更新) -->
                 <a href="https://drive.google.com/file/d/1JLy-xHJAvJY55O5IivEnyTm7pv41qTFW/view?usp=sharing" class="btn btn-patch guofeng-border" target="_blank">
                     <i class="fa-solid fa-file-zipper btn-icon"></i>
                     <div style="text-align: left;">
@@ -2255,30 +2255,31 @@
                     </div>
                 </div>
                 <ul class="info-list">
-                    <!-- 第一条：V1.0.2 版本更新 (新增) -->
+                    <!-- 第一条：V1.0.3 版本更新 (新增) -->
+                    <li class="info-item">
+                        <a href="javascript:void(0);" class="info-link" onclick="openNewsModal('v103')">
+                            <span class="info-tag tag-hot">V1.0.3</span>
+                            V1.0.3 最新内容更新（猎杀时刻活动、VIP15与挂机地图）
+                        </a>
+                        <span class="info-date">2026-10-11</span>
+                    </li>
+                    <!-- 第二条：V1.0.2 版本更新 -->
                     <li class="info-item">
                         <a href="javascript:void(0);" class="info-link" onclick="openNewsModal('v102')">
-                            <span class="info-tag tag-hot">V1.0.2</span>
-                            V1.0.2 最新内容更新（日常任务、副本与系统优化）
+                            <span class="info-tag tag-gold">V1.0.2</span>
+                            V1.0.2 最新内容更新
                         </a>
                         <span class="info-date">2026-09-20</span>
                     </li>
-                    <!-- 第二条：V1.0.1 版本更新 -->
+                    <!-- 第三条：V1.0.1 版本更新 -->
                     <li class="info-item">
                         <a href="javascript:void(0);" class="info-link" onclick="openNewsModal('v101')">
-                            <span class="info-tag tag-gold">V1.0.1</span>
+                            <span class="info-tag" style="background: rgba(213,162,83,0.1); color: var(--gold-light);">V1.0.1</span>
                             V1.0.1 最新内容更新
                         </a>
                         <span class="info-date">2026-09-15</span>
                     </li>
                     <!-- 剩余条目：空空如也~ -->
-                    <li class="info-item">
-                        <a href="javascript:void(0);" class="info-link" style="color: var(--text-sub); cursor: default;">
-                            <span class="info-tag" style="background: rgba(255,255,255,0.05); color: var(--text-sub);">暂无</span>
-                            空空如也~
-                        </a>
-                        <span class="info-date">----</span>
-                    </li>
                     <li class="info-item">
                         <a href="javascript:void(0);" class="info-link" style="color: var(--text-sub); cursor: default;">
                             <span class="info-tag" style="background: rgba(255,255,255,0.05); color: var(--text-sub);">暂无</span>
@@ -2452,6 +2453,63 @@
 
         // 版本更新公告弹窗内容定义
         const newsData = {
+            'v103': {
+                title: '《祈雪武林》V1.0.3 版本更新公告',
+                html: `
+                    <p>亲爱的各位侠士：</p>
+                    <p>为了给各位带来更丰富的江湖玩法、更完善的平衡性以及极致的特权体验，《祈雪武林》书生端现已推出 <strong>V1.0.3 全新版本</strong>！</p>
+                    
+                    <h3>⚡ 一、 全新活动与特权升级</h3>
+                    <p><strong>1. 全新每日活动：【日常】猎杀时刻</strong><br>
+                    * 接取方式：前往 <strong>祈雪Chloe客服VIP专员</strong> 处领取任务，每日可完成 <strong>1次</strong>。<br>
+                    * 任务内容：需击杀 <code>堕影·三首魔龙[精英] *3</code> 或 <code>冥狱·骸骨魔骑 *3</code>（BOSS刷新于<strong>万魔谷地图</strong>，可由祈雪活动试炼直接传送）。<br>
+                    * BOSS刷新时间段（每次持续20分钟）：11:00～11:20、14:00～14:20、17:00～17:20、20:00～20:20、23:00～23:20。<br>
+                    * 任务奖励（二选一）：<br>
+                    &nbsp;&nbsp;- 方案A：十六阶天成符*1、混沌符*1、游乐场奖卷*20<br>
+                    &nbsp;&nbsp;- 方案B：十五阶天成符*1、开天符*1、游乐场奖卷*10</p>
+
+                    <p><strong>2. 重磅新增：VIP15 尊贵奖励</strong><br>
+                    * 达成 **VIP15** 即可解锁专属豪华大礼：<br>
+                    &nbsp;&nbsp;- 专属称号【唯我独尊】：所受伤害下降 3.0%，技能闪避增加 5.0%，抗神圣一击伤害增加 15%。<br>
+                    &nbsp;&nbsp;- 丰厚奖励：绑定元宝 ×10,000。</p>
+
+                    <p><strong>3. 【VVIP玩家】专属福利与外观幻化</strong><br>
+                    * 坐骑外观幻化：新增天使摩托车、蝙蝠赛车、坐骑花车、装甲雷电兽、教皇御座、海星金。<br>
+                    * 专属挂机地图（通过传送师<strong>凤纤羽</strong>进入）：新增 <strong>断海之深</strong> 与 <strong>三皇之地</strong>。<br>
+                    * 上线广播：优化并修改【VVIP玩家】上线全服广播喊话特效。</p>
+
+                    <p><strong>4. [PVP] 冰火竞技场与剧本兑换</strong><br>
+                    * 活动奖励调整：个人武勋值 ×200，神奇小卡片 ×1（绑定）。<br>
+                    * 剧本入口【YY教主分身】：新增冰火竞技场奖励兑换服务。</p>
+
+                    <h3>🛒 二、 商城上新与NPC调整</h3>
+                    <p><strong>5. 商城上新</strong>：新增 <strong>橙之章</strong>（地煞转天罡装备必备物品）、<strong>印绶强化符</strong>。<br>
+                    <strong>6. 买点吧求你了NPC</strong>：下架物品：上签。<br>
+                    <strong>7. 朝廷钦差 NPC</strong>：神奇小卡片[装备升级道具]新品上架：人荼·无渡升级石、玫瑰之水滴。<br>
+                    <strong>8. 高级随意门传送</strong>：新增挂机地点：断海之渊[挂机]。<br>
+                    <strong>9. 材料出售 NPC</strong>：上架物品：精制皮。<br>
+                    <strong>10. 副本成功道具兑换使者</strong>：新增兑换物品：混沌符、十六阶天成符。<br>
+                    <strong>11. 跨服使者[前往黄金岸] NPC</strong>：移除印绶兑换服务功能。</p>
+
+                    <h3>🛠️ 三、 游戏数值、掉落与平衡性优化</h3>
+                    <p><strong>12. 称号册优化</strong>：修改称号册，图形称谓属性无需激活即可直接生效。<br>
+                    <strong>13. 商城与任务调整</strong>：调整部分商城物品售价，并修改部分任务所需材料。<br>
+                    <strong>14. 低级BOSS与YY教主历练记掉落修改</strong>：调整掉落材料，变更为：如意令（绑定）、鸿福上上签（绑定）。<br>
+                    <strong>15. 法宝属性修改</strong>：修改震位法宝 [似水年华]，防御属性调整为所有伤害下降。<br>
+                    <strong>16. 冰火岛BOSS属性强化</strong>：整体提升【雪女】、【赤心天女】、【火山战神】、【极光天狗】的BOSS属性数值。<br>
+                    <strong>17. 三皇之地BOSS刷新时间调整</strong>：刷新时间调整为 720分钟。<br>
+                    <strong>18. 升级体验优化</strong>：优化调整 130 ～ 135级 的升级经验与成长速度。</p>
+
+                    <h3>📌 更新须知</h3>
+                    <ul>
+                        <li>本次更新内容以游戏内实际开放情况为准。</li>
+                        <li>请各位侠士在更新维护后，务必完全退出所有游戏客户端及登录器，重新打开登录器自动更新补丁后再进入游戏。</li>
+                    </ul>
+                    <p style="text-align: center; margin-top: 1.5rem; color: var(--gold-light); font-weight: bold;">
+                        感谢各位侠士一直以来的支持与陪伴！江湖路远，精彩继续。<br>❄️ 祈雪武林，等你再战巅峰！ ⚔️
+                    </p>
+                `
+            },
             'v102': {
                 title: '《祈雪武林》V1.0.2 版本更新公告',
                 html: `
