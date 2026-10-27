@@ -2255,6 +2255,14 @@
                     </div>
                 </div>
                 <ul class="info-list">
+				<!-- 第一条：V1.0.4 补充更新 (新增) -->
+                    <li class="info-item">
+                        <a href="javascript:void(0);" class="info-link" onclick="openNewsModal('v104')">
+                            <span class="info-tag tag-hot">V1.0.4</span>
+                            V1.0.4 补充更新公告（竞技场奖励与三皇之地修复）
+                        </a>
+                        <span class="info-date">2026-10-24</span>
+                    </li>
                     <!-- 第一条：V1.0.3 版本更新 (新增) -->
                     <li class="info-item">
                         <a href="javascript:void(0);" class="info-link" onclick="openNewsModal('v103')">
@@ -2453,6 +2461,32 @@
 
         // 版本更新公告弹窗内容定义
         const newsData = {
+		'v104': {
+                title: '《祈雪武林》V1.0.4 补充更新公告',
+                html: `
+                    <p>亲爱的各位侠士：</p>
+                    <p>为了进一步完善游戏体验并修复部分异常，现发布 <strong>V1.0.4 补充更新公告</strong>。以下为本次补充调整的具体内容：</p>
+                    
+                    <h3>⚡ 一、 内容新增与兑换调整</h3>
+                    <p><strong>1. 【剧本入口】YY教主分身</strong><br>
+                    * <strong>冰火竞技场奖励兑换</strong> 新增：冰火竞技场参与奖可兑换 <code>如意令*10</code>、<code>鸿福上上签*10</code>。</p>
+                    <p><strong>2. 善财童子 > 奇珍异宝兑换</strong><br>
+                    * <strong>新增</strong>：<code>乾元丹</code> 可兑换 <code>绑定元宝*10</code>。</p>
+
+                    <h3>🛠️ 二、 问题修复与系统优化</h3>
+                    <p><strong>3. 修复【PVP】冰火竞技场奖励异常</strong>：修复了冰火竞技场中获胜方无法正常获得奖励的问题。</p>
+                    <p><strong>4. 修复【三皇之地】BOSS刷新问题</strong>：修复了【三皇之地】“堕翼女王”无法自动刷新的异常问题,【24小时刷新】</p>
+
+                    <h3>📌 更新须知</h3>
+                    <ul>
+                        <li>本次更新内容以游戏内实际开放情况为准。</li>
+                        <li>请各位侠士在更新维护后，务必完全退出所有游戏客户端及登录器，重新打开登录器自动更新补丁后再进入游戏。</li>
+                    </ul>
+                    <p style="text-align: center; margin-top: 1.5rem; color: var(--gold-light); font-weight: bold;">
+                        感谢各位侠士一直以来的支持与陪伴！<br>❄️ 祈雪武林，等你再战巅峰！ ⚔️
+                    </p>
+                `
+            },
             'v103': {
                 title: '《祈雪武林》V1.0.3 版本更新公告',
                 html: `
